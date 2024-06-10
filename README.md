@@ -182,7 +182,7 @@ GROUP BY Project.id_proj;
 ```
 ***Output :***
 
-![image](https://github.com/anandarahmadani/mysql7/assets/147919907/88b6ea1a-2a18-46f7-9af4-9cc73fd41de6)
+![image](https://github.com/anandarahmadani/mysql7/assets/147919907/b491ff03-f3f6-43d1-b8cd-6a1b9511e85b)
 
 
 ## 2. Jumlah Karyawan Tiap Departemen Yang Bekerja Pada Tiap-tiap Project.
@@ -197,7 +197,7 @@ GROUP BY Project.id_proj, Departemen.id_dept;
 ```
 ***Output :***
 
-![Screenshot 2024-06-05 122729](https://github.com/nurulaisyah14/TugasPraktikum6/assets/148174512/0bad9fb8-a542-4e54-a8cd-c770880a4586)
+![image](https://github.com/anandarahmadani/mysql7/assets/147919907/b360ddd4-0487-4636-bb2c-8575c3cbfca0)
 
 
 ## 3. Ada Berapa Project Yang Sedang Dikerjakan Oleh Departemen ***RnD***? (ket: project berjalan adalah yang statusnya 1).
