@@ -47,7 +47,7 @@ SELECT * FROM Departemen;
 
 ***Output :***
 
-![Screenshot 2024-06-05 122256](https://github.com/nurulaisyah14/TugasPraktikum6/assets/148174512/ace9a653-1f72-4ca2-a61e-a3b23dae3382)
+![image](https://github.com/anandarahmadani/mysql7/assets/147919907/d7d5e681-ebdc-4962-ae98-ecb5dc5c41ad)
 
 
 ***Query MySQL Pada Tabel Karyawan***
@@ -74,7 +74,7 @@ SELECT * FROM Karyawan;
 
 ***Output :***
 
-![Screenshot 2024-06-05 122324](https://github.com/nurulaisyah14/TugasPraktikum6/assets/148174512/a50e9ff6-caae-41db-8146-062cb16a5bef)
+![image](https://github.com/anandarahmadani/mysql7/assets/147919907/0c3bc5d0-fe5c-43ff-ae34-7d36e9622ec2)
 
 
 ***Query MySQL Pada Tabel Project***
@@ -97,7 +97,7 @@ SELECT * FROM Project;
 
 ***Output :***
 
-![Screenshot 2024-06-05 122401](https://github.com/nurulaisyah14/TugasPraktikum6/assets/148174512/c6af057c-5b58-410c-a2aa-bb3142b89130)
+![image](https://github.com/anandarahmadani/mysql7/assets/147919907/ce3fc578-3fb1-4faf-8485-cef0b322e716)
 
 
 ***Query MySQL Pada Tabel Project Deatil***
@@ -127,8 +127,7 @@ SELECT * FROM Project_detail;
 
 ***Output :***
 
-![Screenshot 2024-06-05 122442](https://github.com/nurulaisyah14/TugasPraktikum6/assets/148174512/bf727e87-e92e-486c-9819-547eebb79b45)
-
+![image](https://github.com/anandarahmadani/mysql7/assets/147919907/a7a65cb0-e56a-4223-b519-37d45ee04ec3)
 
 ## Menampilkan Nama Manajer Tiap Departemen
 
@@ -140,7 +139,7 @@ LEFT JOIN Karyawan ON Karyawan.nik = Departemen.manajer_nik;
 
 ***Output :***
 
-![Screenshot 2024-06-05 122520](https://github.com/nurulaisyah14/TugasPraktikum6/assets/148174512/ea186aa7-7175-432d-bd7f-9f0d0e402f2e)
+![image](https://github.com/anandarahmadani/mysql7/assets/147919907/8df45032-3602-4ca2-99d0-0eeb46dc1d0c)
 
 
 ## Menampilkan Nama Supervisor Tiap Karyawan
@@ -153,7 +152,7 @@ LEFT JOIN Departemen ON Departemen.id_dept = Karyawan.id_dept;
 ```
 ***Output :***
 
-![Screenshot 2024-06-05 122555](https://github.com/nurulaisyah14/TugasPraktikum6/assets/148174512/ea03e708-e43e-4afd-9fac-13e535a20bb7)
+![image](https://github.com/anandarahmadani/mysql7/assets/147919907/386ff591-e8d8-4362-a329-675be6b2f5d4)
 
 
 ## Menampilkan Daftar Karyawan Yang Bekerja Pada Project A
@@ -166,7 +165,7 @@ WHERE Project.nama = 'A';
 ```
 ***Output :***
 
-![Screenshot 2024-06-05 122628](https://github.com/nurulaisyah14/TugasPraktikum6/assets/148174512/f3ccef79-7321-4d8b-a10c-2eb07ad36c16)
+![image](https://github.com/anandarahmadani/mysql7/assets/147919907/eb9a4479-f369-47bf-98fc-5bd5f5f1c3ae)
 
 
 # Soal Latihan Praktikum
@@ -183,7 +182,7 @@ GROUP BY Project.id_proj;
 ```
 ***Output :***
 
-![Screenshot 2024-06-05 122701](https://github.com/nurulaisyah14/TugasPraktikum6/assets/148174512/551f4426-50c9-4dd8-8216-b73026d1bb8e)
+![image](https://github.com/anandarahmadani/mysql7/assets/147919907/88b6ea1a-2a18-46f7-9af4-9cc73fd41de6)
 
 
 ## 2. Jumlah Karyawan Tiap Departemen Yang Bekerja Pada Tiap-tiap Project.
