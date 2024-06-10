@@ -24,7 +24,7 @@ SELECT * FROM Perusahaan;
 
 ***Output :***
 
-![Screenshot 2024-06-05 122105](https://github.com/nurulaisyah14/TugasPraktikum6/assets/148174512/5c08a285-e327-4dc1-bab4-59f5a0a1b88a)
+![image](https://github.com/anandarahmadani/mysql7/assets/147919907/08229fac-57fc-42eb-a3db-56f7f02ed82f)
 
 
 ***Query MySQL Pada Tabel Departemen***
