@@ -1,35 +1,37 @@
-# Tugas Praktikum { Pertemuan ke 14 } <img src=https://logos-download.com/wp-content/uploads/2016/05/MySQL_logo_logotype.png width="130px" >
+# Tugas Praktikum { Pertemuan ke 15 } <img src=https://logos-download.com/wp-content/uploads/2016/05/MySQL_logo_logotype.png width="130px" >
 
+|Variabel|isi|
+|--------|---|
+|**Nama**| Ananda Rahmadani
+|**NIM**| 312310461
+|**Kelas**| TI.23.A5
+|**Matkul**| Basis Data
 
-|**Nama**|**NIM**|**Kelas**|**Matkul**|
-|----|---|-----|------|
-|Ananda Rahmadani|312310461|TI.23.A5|Basis Data|
+# Studi Kasus : Sub Query
 
-![gambar_tugas](screenshot/Soal%20Tabel.png)
+## Soal Praktikum 7
+![image](https://github.com/anandarahmadani/mysql7/assets/147919907/1b523649-7028-401c-ba80-48418c558239)
+> **Keterangan** : Terdapat 5 tabel yang terdiri dari tabel Perusahaan, Departemen, Karyawan, Project dan Project Detail.
 
-***Query MySQL Pada Tabel Perusahaan***
-
-```
+### *Script SQL berdasarkan Tabel Perusahaan*
+```sql
 CREATE TABLE Perusahaan(
 id_p VARCHAR(10) PRIMARY KEY,
 nama VARCHAR(45) NOT NULL,
 alamat VARCHAR(45) DEFAULT NULL
 );
 
-INSERT INTO Perusahaan VALUES
+INSERT INTO Perusahaan (id_p, nama, alamat) VALUES
 ('P01', 'Kantor Pusat', NULL),
 ('P02', 'Cabang Bekasi', NULL);
 SELECT * FROM Perusahaan;
 ```
+#### *Output Tabel Perusahaan :*
 
-***Output :***
+![image](https://github.com/anandarahmadani/mysql7/assets/147919907/000fdcaa-bae1-417a-9024-42a1ce448214)
 
-![image](https://github.com/anandarahmadani/mysql7/assets/147919907/08229fac-57fc-42eb-a3db-56f7f02ed82f)
-
-
-***Query MySQL Pada Tabel Departemen***
-
-```
+### *Script SQL berdasarkan Tabel Departemen*
+```sql
 CREATE TABLE Departemen(
 id_dept VARCHAR(10) PRIMARY KEY,
 nama VARCHAR(45) NOT NULL,
@@ -37,49 +39,44 @@ id_p VARCHAR(10) NOT NULL,
 manajer_nik VARCHAR(10) DEFAULT NULL
 );
 
-INSERT INTO Departemen VALUES
+INSERT INTO Departemen (id_dept, nama, id_p, manajer_nik) VALUES
 ('D01', 'Produksi', 'P02', 'N01'),
 ('D02', 'Marketing', 'P01', 'N03'),
 ('D03', 'RnD', 'P02', NULL),
 ('D04', 'Logistik', 'P02', NULL);
 SELECT * FROM Departemen;
 ```
+#### *Output Tabel Departemen :*
+![image](https://github.com/anandarahmadani/mysql7/assets/147919907/f79dc923-d0e4-4246-8dd4-d9dbeec2dc9f)
 
-***Output :***
-
-![image](https://github.com/anandarahmadani/mysql7/assets/147919907/d7d5e681-ebdc-4962-ae98-ecb5dc5c41ad)
-
-
-***Query MySQL Pada Tabel Karyawan***
-
-```
+### *Script SQL berdasarkan Tabel Karyawan*
+```sql
 CREATE TABLE Karyawan(
 nik VARCHAR(10) PRIMARY KEY,
 nama VARCHAR(45) NOT NULL,
 id_dept VARCHAR(10) NOT NULL,
-sup_nik VARCHAR(10) DEFAULT NULL
+sup_nik VARCHAR(10) DEFAULT NULL,
+gaji_pokok INT
 );
 
-INSERT INTO Karyawan VALUES
-('N01', 'Ari', 'D01', NULL),
-('N02', 'Dina', 'D01', NULL),
-('N03', 'Rika', 'D03', NULL),
-('N04', 'Ratih', 'D01', 'N01'),
-('N05', 'Riko', 'D01', 'N01'),
-('N06', 'Dani', 'D02', NULL),
-('N07', 'Anis', 'D02', 'N06'),
-('N08', 'Dika', 'D02', 'N06');
+INSERT INTO Karyawan (nik, nama, id_dept, sup_nik, gaji_pokok) VALUES
+('N01', 'Ari', 'D01', NULL, 2000000),
+('N02', 'Dina', 'D01', NULL, 2500000),
+('N03', 'Rika', 'D03', NULL, 2400000),
+('N04', 'Ratih', 'D01', 'N01', 3000000),
+('N05', 'Riko', 'D01', 'N01', 2800000),
+('N06', 'Dani', 'D02', NULL, 2100000),
+('N07', 'Anis', 'D02', 'N06', 5000000),
+('N08', 'Dika', 'D02', 'N06', 4000000),
+('N09', 'Raka', 'D03', 'N06', 2000000);
 SELECT * FROM Karyawan;
 ```
-
-***Output :***
-
-![image](https://github.com/anandarahmadani/mysql7/assets/147919907/0c3bc5d0-fe5c-43ff-ae34-7d36e9622ec2)
+#### *Output Tabel Karyawan :*
+![image](https://github.com/anandarahmadani/mysql7/assets/147919907/9e8fed96-717d-4c25-a51d-c98094f3702e)
 
 
-***Query MySQL Pada Tabel Project***
-
-```
+### *Script SQL berdasarkan Tabel Project*
+```sql
 CREATE TABLE Project(
 id_proj VARCHAR(10) PRIMARY KEY,
 nama VARCHAR(45) NOT NULL,
@@ -88,27 +85,24 @@ tgl_selesai DATETIME,
 status TINYINT(1)
 );
 
-INSERT INTO Project VALUES
+INSERT INTO Project (id_proj, nama, tgl_mulai, tgl_selesai, status) VALUES
 ('PJ01', 'A', '2019-01-10', '2019-03-10', '1'),
 ('PJ02', 'B', '2019-02-15', '2019-04-10', '1'),
 ('PJ03', 'C', '2019-03-21', '2019-05-10', '1');
 SELECT * FROM Project;
 ```
-
-***Output :***
-
-![image](https://github.com/anandarahmadani/mysql7/assets/147919907/ce3fc578-3fb1-4faf-8485-cef0b322e716)
+#### *Output Tabel Project :*
+![image](https://github.com/anandarahmadani/mysql7/assets/147919907/69e6904e-067e-4584-afbe-6765f61f3169)
 
 
-***Query MySQL Pada Tabel Project Deatil***
-
-```
+### *Script SQL berdasarkan Tabel Project Detail*
+```sql
 CREATE TABLE Project_detail(
 id_proj VARCHAR(10) NOT NULL,
 nik VARCHAR(10) NOT NULL
 );
 
-INSERT INTO Project_detail VALUES
+INSERT INTO Project_detail (id_proj, nik) VALUES
 ('PJ01', 'N01'),
 ('PJ01', 'N02'),
 ('PJ01', 'N03'),
@@ -124,118 +118,65 @@ INSERT INTO Project_detail VALUES
 ('PJ03', 'N08');
 SELECT * FROM Project_detail;
 ```
+#### *Output Tabel Project Detail :*
+![image](https://github.com/anandarahmadani/mysql7/assets/147919907/a7199054-2412-48a1-ade2-7fe0a309c6cc)
 
-***Output :***
 
-![image](https://github.com/anandarahmadani/mysql7/assets/147919907/a7a65cb0-e56a-4223-b519-37d45ee04ec3)
+## Latihan Praktikum 7
 
-## Menampilkan Nama Manajer Tiap Departemen
+### 1. Tampilkan data karyawan yang bekerja pada departemen yang sama dengan karyawan yang bernama Dika
+**Script :**
 
+```sql
+SELECT nik, nama, id_dept FROM Karyawan WHERE id_dept = (SELECT id_dept FROM Karyawan WHERE nama = 'Dika');
 ```
-Select Departemen.nama AS Departemen, Karyawan.nama AS Manajer
-FROM Departemen
-LEFT JOIN Karyawan ON Karyawan.nik = Departemen.manajer_nik;
+
+**Output :**
+![image](https://github.com/anandarahmadani/mysql7/assets/147919907/6e20637e-58cb-454a-b0bf-485784a060bd)
+
+
+### 2. Tampilkan data karyawan yang gajinya lebih besar dari rata-rata gaji semua karyawan. Urutkan menurun berdasarkan besaran gaji
+**Script :**
+
+```sql
+SELECT nik, nama, id_dept, gaji_pokok FROM karyawan WHERE gaji_pokok > (SELECT AVG(gaji_pokok) FROM Karyawan) ORDER BY gaji_pokok DESC;
 ```
 
-***Output :***
+**Output :**
+![image](https://github.com/anandarahmadani/mysql7/assets/147919907/adf684ee-0641-467e-9493-c40dc1c96bc2)
 
-![image](https://github.com/anandarahmadani/mysql7/assets/147919907/8df45032-3602-4ca2-99d0-0eeb46dc1d0c)
 
+### 3. Tampilkan nik dan nama karyawan untuk semua karyawan yang bekerja di departmen yang sama dengan karyawan dengan nama yang mengandung huruf 'K'.
+**Script :**
 
-## Menampilkan Nama Supervisor Tiap Karyawan
-
+```sql
+SELECT nik, nama FROM Karyawan WHERE id_dept IN (SELECT id_dept FROM Karyawan WHERE nama LIKE '%K%');
 ```
-SELECT Karyawan.nik, Karyawan.nama, Departemen.nama AS Departemen, Supervisor.nama AS Supervisor
-FROM Karyawan
-LEFT JOIN Karyawan AS Supervisor ON Supervisor.nik = Karyawan.sup_nik
-LEFT JOIN Departemen ON Departemen.id_dept = Karyawan.id_dept;
+
+**Output :**
+![image](https://github.com/anandarahmadani/mysql7/assets/147919907/e9a5de0b-ca28-4c08-9bb4-be81444cca86)
+
+
+### 4. Tampilkan data karyawan yang bekerja pada departemen yang ada di Kantor pusat.
+**Script :**
+
+```sql
+SELECT karyawan.nik, karyawan.nama, karyawan.id_dept FROM karyawan JOIN departemen ON karyawan.id_dept = departemen.id_dept WHERE departemen.id_p = 'P01';
 ```
-***Output :***
 
-![image](https://github.com/anandarahmadani/mysql7/assets/147919907/386ff591-e8d8-4362-a329-675be6b2f5d4)
+**Output :**
+![image](https://github.com/anandarahmadani/mysql7/assets/147919907/e37fc7f1-5901-4fc5-bddb-7602c93a0853)
 
 
-## Menampilkan Daftar Karyawan Yang Bekerja Pada Project A
+### 5. Tampilkan nik dan nama karyawan untuk semua karyawan yang bekerja di departmen yang sama dengan karyawan dengan nama yang mengandung huruf 'K' dan yang gajinya lebih besar dari rata-rata gaji semua karyawan
+**Script :**
+
+```sql
+SELECT DISTINCT k1.nik, k1.nama FROM karyawan k1 JOIN karyawan k2 ON k1.id_dept = k2.id_dept WHERE k1.gaji_pokok > (SELECT AVG(gaji_pokok) FROM karyawan WHERE nama LIKE '%K%');
 ```
-SELECT Karyawan.nik, Karyawan.nama
-FROM Karyawan
-JOIN Project_detail ON Project_detail.nik = Karyawan.nik
-JOIN Project ON Project.id_proj = Project_detail.id_proj
-WHERE Project.nama = 'A';
-```
-***Output :***
 
-![image](https://github.com/anandarahmadani/mysql7/assets/147919907/eb9a4479-f369-47bf-98fc-5bd5f5f1c3ae)
+**Output :**
 
+![image](https://github.com/anandarahmadani/mysql7/assets/147919907/2157aa8f-ad97-47af-a9fd-027649d23a31)
 
-# Soal Latihan Praktikum
-
-## 1. Departemen Apa Saja Yang Terlibat Dalam Tiap-tiap Project.
-
-```
-SELECT Project.nama AS Project, GROUP_CONCAT(Departemen.nama) AS Departemen
-FROM Project
-INNER JOIN Project_detail ON Project.id_proj = Project_detail.id_proj
-INNER JOIN Karyawan ON Project_detail.nik = Karyawan.nik
-INNER JOIN Departemen ON Karyawan.id_dept = Departemen.id_dept
-GROUP BY Project.id_proj;
-```
-***Output :***
-
-![image](https://github.com/anandarahmadani/mysql7/assets/147919907/b491ff03-f3f6-43d1-b8cd-6a1b9511e85b)
-
-
-## 2. Jumlah Karyawan Tiap Departemen Yang Bekerja Pada Tiap-tiap Project.
-
-```
-SELECT Project.nama AS Project, Departemen.nama AS Departemen, COUNT(*) AS 'Jumlah Karyawan'
-FROM Project
-INNER JOIN Project_detail ON Project.id_proj = Project_detail.id_proj
-INNER JOIN Karyawan ON Project_detail.nik = Karyawan.nik
-INNER JOIN Departemen ON Karyawan.id_dept = Departemen.id_dept
-GROUP BY Project.id_proj, Departemen.id_dept;
-```
-***Output :***
-
-![image](https://github.com/anandarahmadani/mysql7/assets/147919907/b360ddd4-0487-4636-bb2c-8575c3cbfca0)
-
-
-## 3. Ada Berapa Project Yang Sedang Dikerjakan Oleh Departemen ***RnD***? (ket: project berjalan adalah yang statusnya 1).
-
-```
-SELECT COUNT(*) AS 'Jumlah Project'
-FROM Project
-INNER JOIN Project_detail ON Project.id_proj = Project_detail.id_proj
-INNER JOIN Karyawan ON Project_detail.nik = Karyawan.nik
-INNER JOIN Departemen ON Karyawan.id_dept = Departemen.id_dept
-WHERE Departemen.nama = 'RnD' AND Project.status = 1;
-```
-***Output :***
-
-![Screenshot 2024-06-05 122800](https://github.com/nurulaisyah14/TugasPraktikum6/assets/148174512/d7e9568b-447b-442a-ba2f-f4db7b34883a)
-
-
-## 4. Berapa banyak Project yang sedang dikerjakan oleh Ari ?
-
-```
-SELECT COUNT(*) AS 'Jumlah Project'
-FROM Project_detail
-INNER JOIN Karyawan ON Project_detail.nik = Karyawan.nik
-WHERE Karyawan.nama = 'Ari' AND Project_detail.id_proj IN (SELECT id_proj FROM Project WHERE status = 1);
-```
-***Output :***
-
-![Screenshot 2024-06-05 122839](https://github.com/nurulaisyah14/TugasPraktikum6/assets/148174512/6e4fbc97-62fa-4928-adab-8d47988e4cdc)
-
-
-## 5. Siapa Saja Yang Mengerjakan Project B ?
-
-```
-SELECT Karyawan.nama
-FROM Project_detail
-INNER JOIN Karyawan ON Project_detail.nik = Karyawan.nik
-WHERE Project_detail.id_proj IN (SELECT id_proj FROM Project WHERE nama = 'B');
-```
-***Output :***
-
-![Screenshot 2024-06-05 122905](https://github.com/nurulaisyah14/TugasPraktikum6/assets/148174512/2025bbf0-a544-4a6f-86f2-04f22e2e94c3)
+## SELESAI
